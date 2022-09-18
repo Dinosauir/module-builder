@@ -48,7 +48,7 @@ class DummyClassServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom('app/Persistence/' . $this->getModelName() . '/database/migrations');
     }
 
-    private function getModelName()
+    private function getModelName(): string
     {
         $explodedNamespace = explode('\\', __NAMESPACE__);
 
