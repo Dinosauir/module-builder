@@ -11,6 +11,7 @@ use Abacus\ModuleBuilder\Communication\Commands\Creator\CreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\InterfaceCreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\DataMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\FacadeMakeCommand;
+use Abacus\ModuleBuilder\Communication\Commands\ProviderMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Saver\AbstractSaverMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Saver\InterfaceSaverMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Saver\SaverMakeCommand;
@@ -42,7 +43,8 @@ class ModuleBuilderServiceProvider extends ServiceProvider
                 SaverMakeCommand::class,
                 CreateModule::class,
                 DataMakeCommand::class,
-                FacadeMakeCommand::class
+                FacadeMakeCommand::class,
+                ProviderMakeCommand::class
             ]);
         }
     }
