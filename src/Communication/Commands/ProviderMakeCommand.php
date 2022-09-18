@@ -36,6 +36,6 @@ class ProviderMakeCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . '.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'ServiceProvider.php';
     }
 }
