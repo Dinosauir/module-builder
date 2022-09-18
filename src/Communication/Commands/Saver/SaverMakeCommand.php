@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class SaverMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:saver';
+    protected $name = 'abacus:make-saver';
 
     protected $description = 'Create a new saver class';
 

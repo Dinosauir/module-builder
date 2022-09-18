@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class InterfaceUpdaterMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:interfaceupdater';
+    protected $name = 'abacus:make-interfaceupdater';
 
     protected $description = 'Create a new interface updater';
 

@@ -9,7 +9,7 @@ use Illuminate\Console\GeneratorCommand;
 
 class DataMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:data';
+    protected $name = 'abacus:make-data';
 
     protected $description = 'Create a new data class';
 

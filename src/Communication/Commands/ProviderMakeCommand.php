@@ -3,22 +3,21 @@
 declare(strict_types=1);
 
 
-namespace Abacus\ModuleBuilder\Communication\Commands\Creator;
-
+namespace Abacus\ModuleBuilder\Communication\Commands;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 
-class CreatorMakeCommand extends GeneratorCommand
+class ProviderMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-creator';
+    protected $name = 'abacus:make-provider';
 
-    protected $description = 'Create a new creator class';
+    protected $description = 'Create a new provider';
 
-    protected $type = 'Creator';
+    protected $type = 'Provider';
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/creatorclass.stub');
+        return $this->resolveStubPath('/stubs/business/providers/providerclass.stub');
     }
 
     protected function resolveStubPath(string $stub): string
@@ -30,13 +29,13 @@ class CreatorMakeCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Business\Shared\Services\Creator';
+        return $rootNamespace . '\Business\Shared';
     }
 
     protected function getPath($name)
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'Creator.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'ServiceProvider.php';
     }
 }

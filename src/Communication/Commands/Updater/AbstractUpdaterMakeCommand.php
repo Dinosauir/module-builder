@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class AbstractUpdaterMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:abstractupdater';
+    protected $name = 'abacus:make-abstractupdater';
 
     protected $description = 'Create a new abstract updater class';
 

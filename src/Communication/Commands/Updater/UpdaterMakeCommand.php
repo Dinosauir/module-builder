@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class UpdaterMakeCommand extends GeneratorCommand
 {
-    protected $name = 'make:updater';
+    protected $name = 'abacus:make-updater';
 
     protected $description = 'Create a new updater class';
 
