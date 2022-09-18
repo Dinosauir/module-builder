@@ -28,7 +28,7 @@ class BusinessService
     {
         $command->call(
             'abacus:make-provider',
-            ['name' => $this->getBasePath($module) . $module->getName() . self::PROVIDER_SUFFIX]
+            ['name' => $this->getBasePath($module) . $module->getName()]
         );
     }
 
@@ -52,7 +52,7 @@ class BusinessService
     {
         $command->call(
             'abacus:make-facade',
-            ['name' => $this->getBasePath($module) . 'Facade\\' . $module->getName()]
+            ['name' => $this->getBasePath($module) . 'Facades\\' . $module->getName()]
         );
     }
 
