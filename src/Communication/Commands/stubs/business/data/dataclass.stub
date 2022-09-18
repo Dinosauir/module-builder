@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DummyNamespace;
+
+use CrossTimeTech\Laravel\Data\Data;
+use Illuminate\Http\Request;
+
+class DummyClass extends Data
+{
+    public function __construct(
+    )
+    {
+        parent::__construct();
+    }
+
+    public static function fromRequest(Request $request): static
+    {
+        return new static (
+        );
+    }
+}
