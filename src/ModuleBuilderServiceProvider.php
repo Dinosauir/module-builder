@@ -10,6 +10,8 @@ use Abacus\ModuleBuilder\Communication\Commands\Creator\AbstractCreatorMakeComma
 use Abacus\ModuleBuilder\Communication\Commands\Creator\CreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\InterfaceCreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\DataMakeCommand;
+use Abacus\ModuleBuilder\Communication\Commands\Deleter\DeleterMakeCommand;
+use Abacus\ModuleBuilder\Communication\Commands\Deleter\InterfaceDeleterMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\FacadeMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\ProviderMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Saver\AbstractSaverMakeCommand;
@@ -38,9 +40,11 @@ class ModuleBuilderServiceProvider extends ServiceProvider
                 InterfaceUpdaterMakeCommand::class,
                 InterfaceSaverMakeCommand::class,
                 InterfaceCreatorMakeCommand::class,
+                InterfaceDeleterMakeCommand::class,
                 CreatorMakeCommand::class,
                 UpdaterMakeCommand::class,
                 SaverMakeCommand::class,
+                DeleterMakeCommand::class,
                 CreateModule::class,
                 DataMakeCommand::class,
                 FacadeMakeCommand::class,
