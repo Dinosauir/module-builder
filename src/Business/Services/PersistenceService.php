@@ -52,6 +52,21 @@ class PersistenceService
         }
     }
 
+    public function createDeleter(Command $command, ModuleInterface $module): void
+    {
+        $deleterCommands = [
+            'abacus:make-interfacedeleter',
+            'abacus:make-deleter'
+        ];
+
+        foreach ($deleterCommands as $deleterCommand) {
+            $command->call(
+                $deleterCommand,
+                ['name' => $this->getBasePath($module) . 'Services\\Deleter\\' . $module->getName()]
+            );
+        }
+    }
+
     private function getBasePath(ModuleInterface $module): string
     {
         return sprintf(self::PERSISTENCE_PATH_ROOT, $module->getName());

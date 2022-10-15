@@ -25,5 +25,6 @@ class PersistenceHandler extends AbstractHandler
         $service->createModel($this->command, $module);
         $service->createSaver($this->command, $module);
         $service->createUpdater($this->command, $module);
+        $service->createDeleter($this->command, $module);
     }
 }
