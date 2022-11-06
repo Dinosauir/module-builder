@@ -11,7 +11,7 @@ use Illuminate\Console\Command;
 class CreateModule extends Command
 {
     /** @var string */
-    protected $signature = 'abacus:create-module {name}';
+    protected $signature = 'abacus:create:module {name}';
 
     /** @var string */
     protected $description = 'Creates a module';

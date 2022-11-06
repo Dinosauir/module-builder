@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class InterfaceSaverMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-interfacesaver';
+    protected $name = 'abacus:make:interface:saver';
 
     protected $description = 'Create a new interface saver';
 

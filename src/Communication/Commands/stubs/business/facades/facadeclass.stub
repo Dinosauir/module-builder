@@ -8,13 +8,15 @@ use App\Business\DummyClass\Data\DummyClassData;
 use App\Business\DummyClass\Services\Creator\AbstractDummyClassCreator;
 use App\Persistence\DummyClass\Services\Saver\AbstractDummyClassSaver;
 use App\Persistence\DummyClass\Services\Updater\AbstractDummyClassUpdater;
+use App\Persistence\DummyClass\Services\Deleter\DummyClassDeleterInterface;
 
 class DummyClassFacade
 {
     public function __construct(
         private readonly AbstractDummyClassCreator $creator,
         private readonly AbstractDummyClassSaver   $saver,
-        private readonly AbstractDummyClassUpdater $updater
+        private readonly AbstractDummyClassUpdater $updater,
+        private readonly DummyClassDeleterInterface $deleter
     )
     {
     }
@@ -31,5 +33,10 @@ class DummyClassFacade
         $model = $this->updater->update($id, $data);
 
         return $this->saver->save($model);
+    }
+
+    public function delete(int $id): ?bool
+    {
+        return $this->deleter->delete($id);
     }
 }

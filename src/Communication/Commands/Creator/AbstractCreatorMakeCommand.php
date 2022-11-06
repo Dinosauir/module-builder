@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class AbstractCreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-abstractcreator';
+    protected $name = 'abacus:make:abstract:creator';
 
     protected $description = 'Create a new abstract creator class';
 

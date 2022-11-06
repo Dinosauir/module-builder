@@ -19,7 +19,7 @@ class BusinessService
     public function createData(Command $command, ModuleInterface $module): void
     {
         $command->call(
-            'abacus:make-data',
+            'abacus:make:data',
             ['name' => $this->getBasePath($module) . self::DATA_SUFFIX . '\\' . $module->getName() . self::DATA_SUFFIX]
         );
     }
@@ -27,7 +27,7 @@ class BusinessService
     public function createProvider(Command $command, ModuleInterface $module): void
     {
         $command->call(
-            'abacus:make-provider',
+            'abacus:make:provider',
             ['name' => $this->getBasePath($module) . $module->getName()]
         );
     }
@@ -35,9 +35,9 @@ class BusinessService
     public function createCreator(Command $command, ModuleInterface $module): void
     {
         $creatorCommands = [
-            'abacus:make-interfacecreator',
-            'abacus:make-abstractcreator',
-            'abacus:make-creator'
+            'abacus:make:interface:creator',
+            'abacus:make:abstract:creator',
+            'abacus:make:creator'
         ];
 
         foreach ($creatorCommands as $creatorCommand) {
@@ -51,7 +51,7 @@ class BusinessService
     public function createFacade(Command $command, ModuleInterface $module): void
     {
         $command->call(
-            'abacus:make-facade',
+            'abacus:make:facade',
             ['name' => $this->getBasePath($module) . 'Facades\\' . $module->getName()]
         );
     }

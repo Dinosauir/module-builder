@@ -12,6 +12,8 @@ use App\Persistence\DummyClass\Services\Saver\AbstractDummyClassSaver;
 use App\Persistence\DummyClass\Services\Saver\DummyClassSaver;
 use App\Persistence\DummyClass\Services\Updater\AbstractDummyClassUpdater;
 use App\Persistence\DummyClass\Services\Updater\DummyClassUpdater;
+use App\Persistence\DummyClass\Services\Deleter\DummyClassDeleter;
+use App\Persistence\DummyClass\Services\Deleter\DummyClassDeleterInterface;
 use Illuminate\Support\ServiceProvider;
 
 class DummyClassServiceProvider extends ServiceProvider
@@ -22,6 +24,7 @@ class DummyClassServiceProvider extends ServiceProvider
             $this->app->bind(AbstractDummyClassCreator::class, DummyClassCreator::class);
             $this->app->bind(AbstractDummyClassSaver::class, DummyClassSaver::class);
             $this->app->bind(AbstractDummyClassUpdater::class, DummyClassUpdater::class);
+            $this->app->bind(DummyClassDeleterInterface::class, DummyClassDeleter::class);
         }
 
         $this->app->when(DummyClassFacade::class)
@@ -40,6 +43,12 @@ class DummyClassServiceProvider extends ServiceProvider
             ->needs(AbstractDummyClassUpdater::class)
             ->give(function ($app) {
                 return $app->make(DummyClassUpdater::class);
+            });
+
+        $this->app->when(DummyClassFacade::class)
+            ->needs(DummyClassDeleterInterface::class)
+            ->give(function ($app) {
+                 return $app->make(DummyClassDeleter::class);
             });
     }
 

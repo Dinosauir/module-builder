@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class DeleterMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-deleter';
+    protected $name = 'abacus:make:deleter';
 
     protected $description = 'Create a new deleter class';
 

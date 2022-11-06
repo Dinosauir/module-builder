@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class InterfaceDeleterMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-interfacedeleter';
+    protected $name = 'abacus:make:interface:deleter';
 
     protected $description = 'Create a new interface deleter';
 

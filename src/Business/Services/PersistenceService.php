@@ -23,9 +23,9 @@ class PersistenceService
     public function createSaver(Command $command, ModuleInterface $module): void
     {
         $creatorCommands = [
-            'abacus:make-interfacesaver',
-            'abacus:make-abstractsaver',
-            'abacus:make-saver'
+            'abacus:make:interface:saver',
+            'abacus:make:abstract:saver',
+            'abacus:make:saver'
         ];
 
         foreach ($creatorCommands as $creatorCommand) {
@@ -39,9 +39,9 @@ class PersistenceService
     public function createUpdater(Command $command, ModuleInterface $module): void
     {
         $creatorCommands = [
-            'abacus:make-interfaceupdater',
-            'abacus:make-abstractupdater',
-            'abacus:make-updater'
+            'abacus:make:interface:updater',
+            'abacus:make:abstract:updater',
+            'abacus:make:updater'
         ];
 
         foreach ($creatorCommands as $creatorCommand) {
@@ -55,8 +55,8 @@ class PersistenceService
     public function createDeleter(Command $command, ModuleInterface $module): void
     {
         $deleterCommands = [
-            'abacus:make-interfacedeleter',
-            'abacus:make-deleter'
+            'abacus:make:interface:deleter',
+            'abacus:make:deleter'
         ];
 
         foreach ($deleterCommands as $deleterCommand) {

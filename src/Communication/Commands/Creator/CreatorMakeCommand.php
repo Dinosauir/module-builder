@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class CreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-creator';
+    protected $name = 'abacus:make:creator';
 
     protected $description = 'Create a new creator class';
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class FacadeMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-facade';
+    protected $name = 'abacus:make:facade';
 
     protected $description = 'Create a new facade';
 

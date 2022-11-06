@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class ProviderMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make-provider';
+    protected $name = 'abacus:make:provider';
 
     protected $description = 'Create a new provider';
 
