@@ -26,7 +26,7 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         return $this->resolveStubPath(
-            '/stubs/' . $this->option(
+             $this->option(
                 'translated'
             ) ? 'translatedabstractcreatorclass.stub' : 'abstractcreatorclass.stub'
         );
@@ -36,7 +36,7 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . $stub;
+            : __DIR__ .'/'. $stub;
     }
 
     protected function getDefaultNamespace($rootNamespace): string

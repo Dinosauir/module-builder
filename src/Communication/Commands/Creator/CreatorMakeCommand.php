@@ -26,7 +26,7 @@ class CreatorMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         return $this->resolveStubPath(
-            '/stubs/' . $this->option('translated') ? 'translatedcreatorclass.stub' : 'creatorclass.stub'
+             $this->option('translated') ? 'translatedcreatorclass.stub' : 'creatorclass.stub'
         );
     }
 
@@ -34,7 +34,7 @@ class CreatorMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . $stub;
+            : __DIR__ .'/'. $stub;
     }
 
     protected function getDefaultNamespace($rootNamespace): string

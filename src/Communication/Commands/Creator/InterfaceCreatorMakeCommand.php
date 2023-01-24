@@ -26,7 +26,7 @@ class InterfaceCreatorMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         return $this->resolveStubPath(
-            '/stubs/' . $this->option('translated') ? 'translatedinterfacecreator.stub' : 'interfacecreator.stub'
+            $this->option('translated') ? 'translatedinterfacecreator.stub' : 'interfacecreator.stub'
         );
     }
 
@@ -34,7 +34,7 @@ class InterfaceCreatorMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . $stub;
+            : __DIR__ .'/'. $stub;
     }
 
     protected function getDefaultNamespace($rootNamespace): string
