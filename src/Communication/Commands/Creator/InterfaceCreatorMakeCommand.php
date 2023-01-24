@@ -46,6 +46,8 @@ class InterfaceCreatorMakeCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'CreatorInterface.php';
+        $fileEnd = $this->option('translated') ? 'TranslationCreatorInterface.php' : 'CreatorInterface.php';
+
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . $fileEnd;
     }
 }

@@ -10,7 +10,7 @@ use App\Persistence\DummyClass\DummyClassTranslation;
 abstract class AbstractDummyClassTranslationCreator implements
     DummyClassTranslationCreatorInterface
 {
-    public function create(int $model_id, DummyClassTranslationData $data): DummyClass
+    public function create(int $model_id, DummyClassTranslationData $data): DummyClassTranslation
     {
         $this->validate($data);
 

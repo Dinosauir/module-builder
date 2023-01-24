@@ -58,6 +58,17 @@ class PersistenceService
                 ]
             );
         }
+
+        if ($module->getTranslated()) {
+            foreach ($creatorCommands as $creatorCommand) {
+                $command->call(
+                    $creatorCommand,
+                    [
+                        'name' => $this->getBasePath($module) . 'Services\\TranslaterSaver\\' . $module->getName().'Translation',
+                    ]
+                );
+            }
+        }
     }
 
     public function createUpdater(Command $command, ModuleInterface $module): void

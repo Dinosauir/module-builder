@@ -46,6 +46,8 @@ class CreatorMakeCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
+        $fileEnd = $this->option('translated') ? 'TranslationCreator.php' : 'Creator.php';
+
         return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Creator.php';
     }
 }
