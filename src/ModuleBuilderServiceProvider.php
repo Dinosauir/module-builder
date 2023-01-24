@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace Abacus\ModuleBuilder;
 
+use Abacus\ModuleBuilder\Communication\Commands\ControllerMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\CreateModule;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\AbstractCreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\CreatorMakeCommand;
@@ -46,6 +47,7 @@ class ModuleBuilderServiceProvider extends ServiceProvider
                 UpdaterMakeCommand::class,
                 SaverMakeCommand::class,
                 DeleterMakeCommand::class,
+                ControllerMakeCommand::class,
                 CreateModule::class,
                 DataMakeCommand::class,
                 FacadeMakeCommand::class,
