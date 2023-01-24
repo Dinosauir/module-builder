@@ -26,7 +26,7 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         return $this->resolveStubPath(
-             $this->option(
+            $this->option(
                 'translated'
             ) ? 'translatedabstractcreatorclass.stub' : 'abstractcreatorclass.stub'
         );
@@ -36,7 +36,7 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ .'/stubs/'. $stub;
+            : __DIR__ . '/stubs/' . $stub;
     }
 
     protected function getDefaultNamespace($rootNamespace): string
@@ -52,6 +52,8 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
         $name[array_key_last($name)] = 'Abstract' . $name[array_key_last($name)];
         $name = implode('\\', $name);
 
-        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Creator.php';
+        $fileEnd = $this->option('translated') ? 'TranslationCreator.php' : 'Creator.php';
+
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . $fileEnd;
     }
 }

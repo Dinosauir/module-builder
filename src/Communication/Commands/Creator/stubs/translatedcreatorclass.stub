@@ -5,21 +5,21 @@ declare(strict_types=1);
 namespace DummyNamespace;
 
 
-use App\Business\DummyClass\Data\DummyClassData;
-use App\Persistence\DummyClass\DummyClass;
+use App\Business\DummyClass\Data\DummyClassTranslationData;
+use App\Persistence\DummyClass\DummyClassTranslation;
 
-class DummyClassCreator extends AbstractDummyClassCreator
+class DummyClassTranslationCreator extends AbstractDummyClassTranslationCreator
 {
-    protected function validate(DummyClassData $data): void
+    protected function validate(DummyClassTranslationData $data): void
     {
         return;
     }
 
     protected function createModelFromData(
         int $model_id,
-        DummyClassData $data
-    ): ?DummyClass {
-        $model = new DummyClass();
+        DummyClassTranslationData $data
+    ): ?DummyClassTranslation {
+        $model = new DummyClassTranslation();
 
         $model->locale = $data->locale;
 

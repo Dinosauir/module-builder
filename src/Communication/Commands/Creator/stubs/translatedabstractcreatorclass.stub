@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace DummyNamespace;
 
-use App\Business\DummyClass\Data\DummyClassData;
-use App\Persistence\DummyClass\DummyClass;
+use App\Business\DummyClass\Data\DummyClassTranslationData;
+use App\Persistence\DummyClass\DummyClassTranslation;
 
-abstract class AbstractDummyClassCreator implements
+abstract class AbstractDummyClassTranslationCreator implements
     DummyClassTranslationCreatorInterface
 {
-    public function create(int $model_id, DummyClassData $data): DummyClass
+    public function create(int $model_id, DummyClassTranslationData $data): DummyClass
     {
         $this->validate($data);
 
         return $this->createModelFromData($model_id, $data);
     }
 
-    abstract protected function validate(DummyClassData $data): void;
+    abstract protected function validate(DummyClassTranslationData $data): void;
 
     abstract protected function createModelFromData(
         int $model_id,
-        DummyClassData $data
-    ): ?DummyClass;
+        DummyClassTranslationData $data
+    ): ?DummyClassTranslation;
 }
 
