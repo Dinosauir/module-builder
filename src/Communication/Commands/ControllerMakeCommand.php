@@ -3,6 +3,7 @@
 namespace Abacus\ModuleBuilder\Communication\Commands;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class ControllerMakeCommand extends GeneratorCommand
 {
@@ -28,4 +29,12 @@ class ControllerMakeCommand extends GeneratorCommand
     {
         return $rootNamespace . '\Communication\Shared\Controller';
     }
+
+    protected function getPath($name)
+    {
+        $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Controller.php';
+    }
+}
 }
