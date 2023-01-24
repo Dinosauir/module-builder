@@ -67,7 +67,7 @@ class BusinessService
                 $command->call(
                     $creatorCommand,
                     [
-                        'name' => $this->getBasePath($module) . 'Services\\TranslaterCreator\\' . $module->getName(),
+                        'name' => $this->getBasePath($module) . 'Services\\TranslaterCreator\\' . $module->getName().'Translation',
                         '--translated' => true
                     ]
                 );

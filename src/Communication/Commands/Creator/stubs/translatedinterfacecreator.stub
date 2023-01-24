@@ -5,10 +5,10 @@ declare(strict_types=1);
 
 namespace DummyNamespace;
 
-use App\Business\DummyClass\Data\DummyClassTranslationData;
-use App\Persistence\DummyClass\DummyClassTranslation;
+use App\Business\DummyClass\Data\DummyClassData;
+use App\Persistence\DummyClass\DummyClass;
 
-interface DummyClassTranslationCreatorInterface
+interface DummyClassCreatorInterface
 {
-    public function create(int $model_id, DummyClassTranslationData $data): DummyClassTranslation;
+    public function create(int $model_id, DummyClassData $data): DummyClass;
 }
