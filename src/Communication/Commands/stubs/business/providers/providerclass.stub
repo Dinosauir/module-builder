@@ -55,13 +55,6 @@ class DummyClassServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom('app/Persistence/' . $this->getModelName() . '/database/migrations');
-        if(file_exists($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/api.php'){
-            $this->loadRoutesFrom($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/api.php');
-        }
-
-        if(file_exists($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/web.php'){
-            $this->loadRoutesFrom($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/web.php');
-        }
     }
 
     private function getModelName(): string
@@ -71,8 +64,13 @@ class DummyClassServiceProvider extends ServiceProvider
         return $explodedNamespace[array_key_last($explodedNamespace)];
     }
 
-    private function getRoutePath(): string
+    private function getRouteBasePath(): string
     {
-            return str_replace('/Business/' . $this->getModelName(), '', __DIR__);
+        return str_replace('/Business/' . $this->getModelName(), '', __DIR__);
+    }
+
+    private function getRoutePath(string $filename = 'web.php'): string
+    {
+        return $this->getRouteBasePath() . '/Communication/' . $this->getModelName() . '/routes/'.$filename;
     }
 }
