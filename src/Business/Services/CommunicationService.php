@@ -15,7 +15,7 @@ class CommunicationService
     public function createController(Command $command, ModuleInterface $module): void
     {
         $command->call(
-            'make:controller',
+            'abacus:make:controller',
             ['name' => $this->getBasePath($module) .'Controllers\\'. $module->getName() . 'Controller']
         );
     }
