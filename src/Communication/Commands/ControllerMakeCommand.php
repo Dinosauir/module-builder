@@ -37,4 +37,3 @@ class ControllerMakeCommand extends GeneratorCommand
         return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Controller.php';
     }
 }
-}
