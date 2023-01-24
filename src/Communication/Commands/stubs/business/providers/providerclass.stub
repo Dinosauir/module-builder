@@ -55,6 +55,9 @@ class DummyClassServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom('app/Persistence/' . $this->getModelName() . '/database/migrations');
+
+          $this->loadRoutesFrom($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/api.php');
+          $this->loadRoutesFrom($this->getRoutePath() . '/Communication/' . $this->getModelName() . '/routes/web.php');
     }
 
     private function getModelName(): string
@@ -62,5 +65,10 @@ class DummyClassServiceProvider extends ServiceProvider
         $explodedNamespace = explode('\\', __NAMESPACE__);
 
         return $explodedNamespace[array_key_last($explodedNamespace)];
+    }
+
+    private function getRoutePath(): string
+    {
+            return str_replace('/Business/' . $this->getModelName(), '', __DIR__);
     }
 }
