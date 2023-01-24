@@ -10,11 +10,18 @@ use Illuminate\Support\Str;
 
 class AbstractCreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:abstract:creator {--translated}';
+    protected $name = 'abacus:make:abstract:creator';
 
     protected $description = 'Create a new abstract creator class';
 
     protected $type = 'AbstractCreator';
+
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
 
     protected function getStub(): string
     {

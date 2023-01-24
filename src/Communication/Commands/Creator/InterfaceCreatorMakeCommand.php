@@ -10,11 +10,18 @@ use Illuminate\Support\Str;
 
 class InterfaceCreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:interface:creator {--translated}';
+    protected $name = 'abacus:make:interface:creator';
 
     protected $description = 'Create a new interface creator';
 
     protected $type = 'InterfaceCreator';
+
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
 
     protected function getStub(): string
     {

@@ -10,11 +10,18 @@ use Illuminate\Support\Str;
 
 class FacadeMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:facade {--translated}';
+    protected $name = 'abacus:make:facade';
 
     protected $description = 'Create a new facade';
 
     protected $type = 'Facade';
+
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
 
     protected function getStub(): string
     {

@@ -10,11 +10,12 @@ use Illuminate\Support\Str;
 
 class ProviderMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:provider {--translated}';
+    protected $name = 'abacus:make:provider';
 
     protected $description = 'Create a new provider';
 
     protected $type = 'Provider';
+
 
     protected function getStub(): string
     {
@@ -23,6 +24,13 @@ class ProviderMakeCommand extends GeneratorCommand
         $class = $this->option('translated') ? 'translatedproviderclass.stub' : 'providerclass.stub';
 
         return $this->resolveStubPath($basePath . $class);
+    }
+
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
     }
 
     protected function resolveStubPath(string $stub): string

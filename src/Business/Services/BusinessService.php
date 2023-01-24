@@ -44,7 +44,7 @@ class BusinessService
         ];
 
         if ($module->getTranslated()) {
-            $options[] = ['--translated' => true];
+            $options['--translated'] = true;
         }
 
         $command->call('abacus:make:provider', $options);
@@ -84,7 +84,7 @@ class BusinessService
         ];
 
         if ($module->getTranslated()) {
-            $options[] = ['--translated' => true];
+            $options['--translated'] = true;
         }
 
         $command->call('abacus:make:facade', $options);

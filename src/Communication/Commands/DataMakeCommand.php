@@ -9,11 +9,18 @@ use Illuminate\Console\GeneratorCommand;
 
 class DataMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:data {--translated}';
+    protected $name = 'abacus:make:data';
 
     protected $description = 'Create a new data class';
 
     protected $type = 'Data';
+
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
 
     protected function getStub(): string
     {
