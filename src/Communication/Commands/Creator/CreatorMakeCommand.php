@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class CreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:creator';
+    protected $name = 'abacus:make:creator {--translated}';
 
     protected $description = 'Create a new creator class';
 
@@ -18,7 +18,9 @@ class CreatorMakeCommand extends GeneratorCommand
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/creatorclass.stub');
+        return $this->resolveStubPath(
+            '/stubs/' . $this->option('translated') ? 'translatedcreatorclass.stub' : 'creatorclass.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string
@@ -37,6 +39,6 @@ class CreatorMakeCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'Creator.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Creator.php';
     }
 }

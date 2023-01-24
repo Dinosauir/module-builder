@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class FacadeMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:facade';
+    protected $name = 'abacus:make:facade {--translated}';
 
     protected $description = 'Create a new facade';
 
@@ -18,7 +18,11 @@ class FacadeMakeCommand extends GeneratorCommand
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/business/facades/facadeclass.stub');
+        $basePath = "/stubs/business/facades/";
+
+        $class = $this->option('translated') ? 'translatedfacadeclass.stub' : 'facadeclass.stub';
+
+        return $this->resolveStubPath($basePath . $class);
     }
 
     protected function resolveStubPath(string $stub): string
@@ -30,7 +34,7 @@ class FacadeMakeCommand extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Business\Shared\Services\Creator';
+        return $rootNamespace . '\Business\Shared\Facades';
     }
 
     protected function getPath($name)

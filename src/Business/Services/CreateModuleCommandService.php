@@ -12,10 +12,11 @@ use Illuminate\Console\Command;
 
 class CreateModuleCommandService
 {
-    public function setHandlers(string $moduleName, Command $moduleCommand)
+    public function setHandlers(bool $translated, string $moduleName, Command $moduleCommand): void
     {
         $module = new Module();
         $module->setName($moduleName);
+        $module->setTranslated($translated);
 
         (new BusinessHandler($moduleCommand))->handle($module);
     }

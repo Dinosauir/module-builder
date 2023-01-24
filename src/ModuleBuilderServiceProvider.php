@@ -10,6 +10,7 @@ use Abacus\ModuleBuilder\Communication\Commands\CreateModule;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\AbstractCreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\CreatorMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Creator\InterfaceCreatorMakeCommand;
+use Abacus\ModuleBuilder\Communication\Commands\DataCollectionMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\DataMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Deleter\DeleterMakeCommand;
 use Abacus\ModuleBuilder\Communication\Commands\Deleter\InterfaceDeleterMakeCommand;
@@ -33,11 +34,11 @@ class ModuleBuilderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
         if ($this->app->runningInConsole()) {
             $this->commands([
                 AbstractSaverMakeCommand::class,
                 AbstractCreatorMakeCommand::class,
+                DataCollectionMakeCommand::class,
                 AbstractUpdaterMakeCommand::class,
                 InterfaceUpdaterMakeCommand::class,
                 InterfaceSaverMakeCommand::class,

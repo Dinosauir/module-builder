@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class InterfaceCreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:interface:creator';
+    protected $name = 'abacus:make:interface:creator {--translated}';
 
     protected $description = 'Create a new interface creator';
 
@@ -18,7 +18,9 @@ class InterfaceCreatorMakeCommand extends GeneratorCommand
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/interfacecreator.stub');
+        return $this->resolveStubPath(
+            '/stubs/' . $this->option('translated') ? 'translatedinterfacecreator.stub' : 'interfacecreator.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string

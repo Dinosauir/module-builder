@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class AbstractCreatorMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:abstract:creator';
+    protected $name = 'abacus:make:abstract:creator {--translated}';
 
     protected $description = 'Create a new abstract creator class';
 
@@ -18,7 +18,11 @@ class AbstractCreatorMakeCommand extends GeneratorCommand
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/abstractcreatorclass.stub');
+        return $this->resolveStubPath(
+            '/stubs/' . $this->option(
+                'translated'
+            ) ? 'translatedabstractcreatorclass.stub' : 'abstractcreatorclass.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string

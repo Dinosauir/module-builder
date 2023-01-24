@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 
 namespace Abacus\ModuleBuilder\Communication\Commands;
+
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
 
 class ProviderMakeCommand extends GeneratorCommand
 {
-    protected $name = 'abacus:make:provider';
+    protected $name = 'abacus:make:provider {--translated}';
 
     protected $description = 'Create a new provider';
 
@@ -17,7 +18,11 @@ class ProviderMakeCommand extends GeneratorCommand
 
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/business/providers/providerclass.stub');
+        $basePath = "/stubs/business/providers/";
+
+        $class = $this->option('translated') ? 'translatedproviderclass.stub' : 'providerclass.stub';
+
+        return $this->resolveStubPath($basePath . $class);
     }
 
     protected function resolveStubPath(string $stub): string

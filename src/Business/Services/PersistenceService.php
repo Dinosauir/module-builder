@@ -21,6 +21,13 @@ class PersistenceService
             'make:model',
             ['name' => $this->getBasePath($module) . $module->getName()]
         );
+
+        if ($module->getTranslated()) {
+            $command->call(
+                'make:model',
+                ['name' => $this->getBasePath($module) . $module->getName() . 'Translation']
+            );
+        }
     }
 
     public function createMigration(Command $command, ModuleInterface $module): void
@@ -46,7 +53,9 @@ class PersistenceService
         foreach ($creatorCommands as $creatorCommand) {
             $command->call(
                 $creatorCommand,
-                ['name' => $this->getBasePath($module) . 'Services\\Saver\\' . $module->getName()]
+                [
+                    'name' => $this->getBasePath($module) . 'Services\\Saver\\' . $module->getName(),
+                ]
             );
         }
     }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 
-namespace App\Business\DummyClass\Services\Creator;
+namespace DummyNamespace;
 
 use App\Business\DummyClass\Data\DummyClassData;
 use App\Persistence\DummyClass\DummyClass;

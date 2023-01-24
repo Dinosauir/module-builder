@@ -10,4 +10,8 @@ interface ModuleInterface
     public function getName(): string;
 
     public function setName(string $name): void;
+
+    public function getTranslated(): bool;
+
+    public function setTranslated(bool $translated): void;
 }

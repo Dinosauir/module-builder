@@ -11,13 +11,15 @@ use Illuminate\Console\Command;
 class CreateModule extends Command
 {
     /** @var string */
-    protected $signature = 'abacus:create:module {name}';
+    protected $signature = 'abacus:create:module {name} {--translated}';
 
     /** @var string */
     protected $description = 'Creates a module';
 
     public function handle(CreateModuleCommandService $moduleCommandService): void
     {
-        $moduleCommandService->setHandlers($this->argument('name'), $this);
+        $translated = $this->option('translated');
+
+        $moduleCommandService->setHandlers($translated, $this->argument('name'), $this);
     }
 }
