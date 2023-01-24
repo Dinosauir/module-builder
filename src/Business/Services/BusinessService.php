@@ -19,15 +19,13 @@ class BusinessService
     {
         $baseName = $this->getBasePath($module) . self::DATA_SUFFIX . '\\' . $module->getName();
 
-        $command->call(
-            'abacus:make:data {--translated}',
-            [
-                'name' => $module->getTranslated(
-                ) ? $baseName . 'Translation' . self::DATA_SUFFIX : $baseName . self::DATA_SUFFIX
-            ]
-        );
+        $options = [
+            'name' => $module->getTranslated(
+            ) ? $baseName . 'Translation' . self::DATA_SUFFIX : $baseName . self::DATA_SUFFIX
+        ];
 
         if ($module->getTranslated()) {
+            $options['--translated'] = true;
             $command->call(
                 'abacus:make:data-collection',
                 [
@@ -35,6 +33,8 @@ class BusinessService
                 ]
             );
         }
+
+        $command->call('abacus:make:data', $options);
     }
 
     public function createProvider(Command $command, ModuleInterface $module): void
