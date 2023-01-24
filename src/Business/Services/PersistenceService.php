@@ -7,10 +7,13 @@ namespace Abacus\ModuleBuilder\Business\Services;
 
 use Abacus\ModuleBuilder\Business\Contracts\ModuleInterface;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class PersistenceService
 {
     private const PERSISTENCE_PATH_ROOT = 'App\\Persistence\\%s\\';
+
+    private const MIGRATION_PATH_ROOT = '/app/Persistence/%s/database/migrations';
 
     public function createModel(Command $command, ModuleInterface $module): void
     {
@@ -19,6 +22,18 @@ class PersistenceService
             ['name' => $this->getBasePath($module) . $module->getName()]
         );
     }
+
+    public function createMigration(Command $command, ModuleInterface $module): void
+    {
+        $command->call(
+            'make:migration',
+            [
+                'name' => $this->getMigrationName($module),
+                '--path' => $this->getMigrationPath($module)
+            ]
+        );
+    }
+
 
     public function createSaver(Command $command, ModuleInterface $module): void
     {
@@ -70,5 +85,20 @@ class PersistenceService
     private function getBasePath(ModuleInterface $module): string
     {
         return sprintf(self::PERSISTENCE_PATH_ROOT, $module->getName());
+    }
+
+    private function getMigrationPath(ModuleInterface $module): string
+    {
+        return sprintf(self::MIGRATION_PATH_ROOT, $module->getName());
+    }
+
+    private function getMigrationName(ModuleInterface $module): string
+    {
+        return 'create_' . Str::plural($this->convertSnakeCase($module->getName())) . '_table';
+    }
+
+    private function convertSnakeCase(string $input): string
+    {
+        return strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $input));
     }
 }
