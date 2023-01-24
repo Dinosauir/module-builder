@@ -55,6 +55,16 @@ class DummyClassServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom('app/Persistence/' . $this->getModelName() . '/database/migrations');
+
+        if(file_exists($this->getRoutePath()))
+        {
+            $this->loadRoutesFrom($this->getRoutePath());
+        }
+
+        if(file_exists($this->getRoutePath('api.php')))
+        {
+            $this->loadRoutesFrom($this->getRoutePath('api.php'));
+        }
     }
 
     private function getModelName(): string
