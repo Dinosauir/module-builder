@@ -16,7 +16,7 @@ class CommunicationService
     {
         $command->call(
             'abacus:make:controller',
-            ['name' => $this->getBasePath($module) .'Controllers\\'. $module->getName() . 'Controller']
+            ['name' => $this->getBasePath($module) . 'Controllers\\' . $module->getName()]
         );
     }
 
@@ -24,7 +24,7 @@ class CommunicationService
     {
         $command->call(
             'make:request',
-            ['name' => $this->getBasePath($module) .'Requests\\'. $module->getName() . 'Request']
+            ['name' => $this->getBasePath($module) . 'Requests\\' . $module->getName() . 'Request']
         );
     }
 
