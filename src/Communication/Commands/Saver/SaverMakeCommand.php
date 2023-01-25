@@ -38,7 +38,7 @@ class SaverMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . $stub;
+            : __DIR__ .'/stubs/'. $stub;
     }
 
     protected function getDefaultNamespace($rootNamespace): string
