@@ -50,6 +50,8 @@ class SaverMakeCommand extends GeneratorCommand
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
-        return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'Saver.php';
+        $fileEnd = $this->option('translated') ? 'TranslationSaver.php' : 'Saver.php';
+
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . $fileEnd;
     }
 }

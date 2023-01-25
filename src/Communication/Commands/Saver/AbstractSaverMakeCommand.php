@@ -52,6 +52,8 @@ class AbstractSaverMakeCommand extends GeneratorCommand
         $name[array_key_last($name)] = 'Abstract' . $name[array_key_last($name)];
         $name = implode('\\', $name);
 
-        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Saver.php';
+        $fileEnd = $this->option('translated') ? 'TranslationSaver.php' : 'Saver.php';
+
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . $fileEnd;
     }
 }

@@ -48,6 +48,6 @@ class CreatorMakeCommand extends GeneratorCommand
 
         $fileEnd = $this->option('translated') ? 'TranslationCreator.php' : 'Creator.php';
 
-        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . 'Creator.php';
+        return $this->laravel['path'] . '/' . str_replace('\\', '/', $name) . $fileEnd;
     }
 }
