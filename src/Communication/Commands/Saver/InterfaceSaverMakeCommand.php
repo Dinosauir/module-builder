@@ -16,9 +16,20 @@ class InterfaceSaverMakeCommand extends GeneratorCommand
 
     protected $type = 'InterfaceSaver';
 
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
+
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/interfacesaver.stub');
+        return $this->resolveStubPath(
+            $this->option(
+                'translated'
+            ) ? 'translatedinterfacesaver.stub' : 'interfacesaver.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string

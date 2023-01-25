@@ -16,9 +16,20 @@ class AbstractSaverMakeCommand extends GeneratorCommand
 
     protected $type = 'AbstractSaver';
 
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
+
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/abstractsaverclass.stub');
+        return $this->resolveStubPath(
+            $this->option(
+                'translated'
+            ) ? 'translatedabstractsaverclass.stub' : 'abstractsaverclass.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string

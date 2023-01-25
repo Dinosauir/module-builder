@@ -16,9 +16,22 @@ class SaverMakeCommand extends GeneratorCommand
 
     protected $type = 'Saver';
 
+    protected function getOptions()
+    {
+        return [
+            ['--translated']
+        ];
+    }
+
+
     protected function getStub(): string
     {
-        return $this->resolveStubPath('/stubs/saverclass.stub');
+
+        return $this->resolveStubPath(
+            $this->option(
+                'translated'
+            ) ? 'translatedsaverclass.stub' : 'saverclass.stub'
+        );
     }
 
     protected function resolveStubPath(string $stub): string

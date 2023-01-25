@@ -64,7 +64,8 @@ class PersistenceService
                 $command->call(
                     $creatorCommand,
                     [
-                        'name' => $this->getBasePath($module) . 'Services\\TranslaterSaver\\' . $module->getName().'Translation',
+                        'name' => $this->getBasePath($module) . 'Services\\TranslaterSaver\\' . $module->getName(),
+                        '--translated' => true
                     ]
                 );
             }
