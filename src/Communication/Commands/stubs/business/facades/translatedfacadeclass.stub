@@ -10,7 +10,7 @@ use App\Persistence\DummyClass\Services\Saver\AbstractDummyClassSaver;
 use App\Persistence\DummyClass\Services\Updater\AbstractDummyClassUpdater;
 use App\Persistence\DummyClass\Services\Deleter\DummyClassDeleterInterface;
 use App\Persistence\DummyClass\Services\TranslaterSaver\AbstractDummyClassTranslationSaver;
-use App\Persistence\DummyClass\Services\TranslaterSaver\AbstractDummyClassTranslationUpdater;
+use App\Business\DummyClass\Services\TranslaterCreator\AbstractDummyClassTranslationCreator;
 
 class DummyClassFacade
 {
